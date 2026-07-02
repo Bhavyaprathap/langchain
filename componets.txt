@@ -1,0 +1,1 @@
+models are basically the interfaces so that we can communicate with the ai models

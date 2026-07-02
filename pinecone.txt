@@ -1,0 +1,76 @@
+It stores these vectors (embeddings), not the raw text for searching.
+
+When a user asks a question:
+
+The question is converted into an embedding.
+Pinecone searches for the most similar vectors.
+It returns the matching document chunks.
+
+
+Other Vector Databases
+
+Pinecone is popular, but there are several alternatives:
+
+Pinecone – Managed cloud service, easy to scale.
+FAISS – Runs locally, very popular for development and research.
+Chroma – Simple and beginner-friendly for local projects.
+Milvus – Open-source, designed for large-scale deployments.
+Weaviate – Vector database with additional search features.
+
+in google colab i worked on the pinecone and then secret data
+Google Colab
+       │
+       ▼
+Colab Secrets
+       │
+       ▼
+userdata.get("PINECONE_API_KEY")
+       │
+       ▼
+Pinecone SDK
+       │
+       ▼
+Pinecone Cloud
+
+
+nlu latural language understanding and context 
+
+challenges in building the design 
+1)building the brain->using the (llms) can solve this
+->llms basically solved the problem of the NLU and context aware text ageneration
+2)as llms are heavy and need to be stored on the server and need to solve computational problems
+so how to put on the cloud an llm,openai or google or anthropic they solved by putting the models
+on their server and created an api so that we can use those llm and ask the query and then get the answer
+
+so instead of using an llm we can use the llm API
+
+3)to orchestrate the system 
+->AWS s3 and text splitter
+->database,embeddings design is made of alot of moving components so 
+
+3->sol this is where langchain into the picture langchain->is basically used to build the orchestration and then see the interface where the user just focuses on the logic
+uses of langchain 
+->forms the sequence of chains 
+->model agnostic development
+->openapi or google anything can be used
+
+
+
+day1
+# Day 1 – ChatOllama Basics
+
+## What is ChatOllama?
+
+ChatOllama is a LangChain wrapper that allows Python applications to communicate with locally running Ollama models. It sends prompts to the Ollama server using HTTP requests and returns the model's response.
+
+---
+
+## What is invoke()?
+
+invoke() sends a prompt to the language model, waits for the complete response, and returns an AIMessage object.
+
+---
+
+## What is AIMessage?
+
+AIMessage is the response object returned by LangChain. It contains the generated text in the `content` field along with additional metadata such as model details, token usage, and response information.
