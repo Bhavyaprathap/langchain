@@ -11,3 +11,41 @@ print(res.content)
 
 
 
+from langchain_ollama import ChatOllama
+from langchain_core.prompts import PromptTemplate
+
+llm=ChatOllama(model="gemma3:4b")
+
+
+topic=input("Enter topic: ")
+difficulty=input("Enter difficulty: ")
+
+#prompt template
+prompt=PromptTemplate.from_template(
+    """you are an experienced technical interviewer.
+    Generate 10 {difficulty} interview questions on {topic}
+    Only generate the questions.
+    Do not provide the answers.
+    """
+)
+
+#invoking
+final_prompt=prompt.invoke({
+    "topic":topic,
+    "difficulty":difficulty
+}
+)
+response=llm.invoke(final_prompt)
+
+print("\n=*10")
+print("response generator!")
+print("\n=*10")
+print(response.content)
+
+
+
+
+
+
+
+
