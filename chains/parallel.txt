@@ -1,0 +1,48 @@
+Flow:
+
+Text
+ │
+ ▼
+Generate Notes
+ │
+ ▼
+Wait...
+
+ ▼
+Generate Quiz
+ │
+ ▼
+Wait...
+
+Notice something?
+
+The quiz waits for the notes to finish.
+
+Even though they are independent tasks.
+
+
+
+with parallel
+
+
+                 Text
+
+                  │
+
+        ┌─────────┴─────────┐
+
+        ▼                   ▼
+
+Generate Notes      Generate Quiz
+
+        │                   │
+
+        └─────────┬─────────┘
+
+                  ▼
+
+             Merge LLM
+
+                  ▼
+
+            Final Document
